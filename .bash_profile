@@ -9,7 +9,7 @@ unset file
 
 # to help sublimelinter etc with finding my PATHS
 case $- in
-   *i*) source ~/.extra
+   *i*) [ -r "~/.extra" ] && source ~/.extra
 esac
 
 # generic colouriser
@@ -90,24 +90,24 @@ if [[ -n "$ZSH_VERSION" ]]; then  # quit now if in zsh
 fi;
 
 # bash completion.
-if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+if  which brew > /dev/null  2>&1 && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
     source "$(brew --prefix)/share/bash-completion/bash_completion";
 elif [ -f /etc/bash_completion ]; then
     source /etc/bash_completion;
 fi;
 
 # homebrew completion
-if  which brew > /dev/null; then
+if  which brew > /dev/null 2>&1 ; then
     source "$(brew --prefix)/etc/bash_completion.d/brew"
 fi;
 
 # hub completion
-if  which hub > /dev/null; then
+if  which hub > /dev/null 2>&1 ; then
     source "$(brew --prefix)/etc/bash_completion.d/hub.bash_completion.sh";
 fi;
 
 # Enable tab completion for `g` by marking it as an alias for `git`
-if type __git_complete &> /dev/null; then
+if type __git_complete &> /dev/null 2>&1 ; then
     __git_complete g __git_main
 fi;
 

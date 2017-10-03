@@ -22,6 +22,11 @@ alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.c
 
 alias ag='ag -f --hidden'
 
+alias s='start'
+alias l='ls -rlta'
+alias ff='rg --follow --color=never --no-heading --hidden --files -g'
+alias fstr='rg --follow --no-heading --hidden'
+
 ###
 # time to upgrade `ls`
 
@@ -73,7 +78,7 @@ alias free_diskspace_report="diskspace_report"
 
 # Shortcuts
 alias g="git"
-alias v="vim"
+#alias v="vim"
 alias ungz="gunzip -k"
 
 # File size

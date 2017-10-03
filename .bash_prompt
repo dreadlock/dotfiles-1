@@ -72,7 +72,6 @@ set_prompts() {
 
     # Only show username/host if not default
     function usernamehost() {
-
         # Highlight the user name when logged in as root.
         if [[ "${USER}" == *"root" ]]; then
             userStyle="${red}";
@@ -81,10 +80,10 @@ set_prompts() {
         fi;
 
         userhost=""
-        userhost+="\[${userStyle}\]$USER "
-        userhost+="\[${white}\]at "
-        userhost+="\[${orange}\]$HOSTNAME "
-        userhost+="\[${white}\]in"
+        userhost+="\[${userStyle}\]$USER"
+        userhost+="${white}@"
+        userhost+="${orange}$HOSTNAME"
+        userhost+="${white}:"
 
         if [ $USER != "$default_username" ]; then echo $userhost ""; fi
     }

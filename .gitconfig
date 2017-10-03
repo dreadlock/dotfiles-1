@@ -15,6 +15,7 @@
 	reup = rebase-update # depot_tools specific
 
 [core]
+	autocrlf = true
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 
